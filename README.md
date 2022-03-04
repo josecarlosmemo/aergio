@@ -36,7 +36,6 @@
       </ul>
     </li>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
@@ -62,15 +61,6 @@ Ahora con esta información a la mano, va en busqueda de venganza en lo que cono
 * [Unity](https://unity.com/es)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- CONTACT -->
