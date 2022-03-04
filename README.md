@@ -11,7 +11,6 @@
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
 
 
 
@@ -78,12 +77,16 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 ## Contributors and information
 
 Actividad 1 - propuesta y primer prototipo 
+
 Construcción de software y toma de decisiones (Gpo 400) | TC2005B.400
+
 
 Tecnológico de Monterrey - Campus Guadalajara
 
 
+
 Carla Morales López - [@moraleslc](https://github.com/moraleslc) - A01639225
+
 José Carlos Martínez Núñez - [@josecarlosmemo](https://github.com/josecarlosmemo) - A01639664
 
 Link del proyecto: [https://github.com/josecarlosmemo/aergio](https://github.com/josecarlosmemo/aergio)
@@ -95,11 +98,12 @@ Link del proyecto: [https://github.com/josecarlosmemo/aergio](https://github.com
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
+Documentos, recursos, código, imágenes, entre otros usados en Aergio:
 
 * [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
-* [Deserta - Logo font](https://www.behance.net/gallery/134622603/Deserta-FREE-FONT/modules/761819889)
+* [Deserta - logo font](https://www.behance.net/gallery/134622603/Deserta-FREE-FONT/modules/761819889)
 * [Black and red digital device photo - logo's background](https://unsplash.com/photos/vS3bTz1dZ9U)
+* [Shields](https://shields.io/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -107,12 +111,10 @@ Use this space to list resources you find helpful and would like to give credit 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/badge/contributors-2-green
 [contributors-url]: https://github.com/josecarlosmemo/aergio/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/josecarlosmemo/aergio
 [forks-url]: https://github.com/josecarlosmemo/aergio/network/members
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/josecarlosmemo/aergio
 [issues-url]: https://github.com/josecarlosmemo/aergio/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/josecarlosmemo/aergio#license
 [product-screenshot]: images/screenshot.png
