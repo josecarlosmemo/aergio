@@ -21,7 +21,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/josecarlosmemo/aergio">
-    <img src="./ArchivosExtra/Demo.png" alt="Logo">
+    <img src="./ArchivosExtra/Logotipo.png" alt="Logo">
   </a>
   </p>
 </div>
