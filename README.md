@@ -1,18 +1,8 @@
 <div id="top"></div>
 
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Issues][issues-shield]][issues-url]
-
-
 
 <!-- PROJECT LOGO -->
 <br />
@@ -22,8 +12,6 @@
   </a>
   </p>
 </div>
-
-
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -41,8 +29,6 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
 ## What is AERGIO?
 
@@ -54,26 +40,20 @@ Ahora con esta información a la mano, va en busqueda de venganza en lo que cono
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 ## Built with
 
 * [Unity](https://unity.com/es)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
 <!-- CONTACT -->
 ## Contributors and information
 
-Actividad 1 - propuesta y primer prototipo 
+Actividad 1 - propuesta y primer prototipo
 
 Construcción de software y toma de decisiones (Gpo 400) | TC2005B.400
 
-
 Tecnológico de Monterrey - Campus Guadalajara
-
-
 
 Carla Morales López - [@moraleslc](https://github.com/moraleslc) - A01639225
 
@@ -82,8 +62,6 @@ José Carlos Martínez Núñez - [@josecarlosmemo](https://github.com/josecarlos
 Link del proyecto: [https://github.com/josecarlosmemo/aergio](https://github.com/josecarlosmemo/aergio)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
@@ -101,8 +79,6 @@ Documentos, recursos, código, imágenes, entre otros usados en Aergio:
 * [Drone Guard](https://assetstore.unity.com/packages/3d/characters/robots/drone-guard-175607)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
