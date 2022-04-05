@@ -94,6 +94,9 @@ Documentos, recursos, código, imágenes, entre otros usados en Aergio:
 * [Deserta - logo font](https://www.behance.net/gallery/134622603/Deserta-FREE-FONT/modules/761819889)
 * [Black and red digital device photo - logo's background](https://unsplash.com/photos/vS3bTz1dZ9U)
 * [Shields](https://shields.io/)
+* [Polygonal's Low-Poly Particle Pack](https://assetstore.unity.com/packages/vfx/particles/polygonal-s-low-poly-particle-pack-118355)
+* [First-Aid Set](https://assetstore.unity.com/packages/3d/props/first-aid-set-160073)
+* [Free LowPoly SciFi](https://assetstore.unity.com/packages/3d/environments/sci-fi/free-lowpoly-scifi-110070)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
