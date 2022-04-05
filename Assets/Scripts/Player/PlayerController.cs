@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
+    public static event System.Action onReachedFinish;
+
+
     [Header("Movement")]
     public float movementSpeed;
     public float jumpForce;
@@ -28,16 +31,20 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
     bool isInGround;
 
+
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
-    public KeyCode spawnHealth = KeyCode.H;
+    // public KeyCode spawnHealth = KeyCode.H;
 
-    public KeyCode spawnWaste = KeyCode.J;
+    // public KeyCode spawnWaste = KeyCode.J;
+
+    bool areControlsDisabled;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true; // Esto nos ayuda a que el jugador no se "caiga".
+        Drone.OnPlayerSpotted += disableControls;
     }
 
     void Update()
@@ -51,10 +58,16 @@ public class PlayerController : MonoBehaviour
             groundLayer
         );
 
-        // Obtenemos Inputs de Axes
-        getInputs();
-        // Control de Velocidad
-        speedControl();
+
+        if (!areControlsDisabled)
+        {
+            // Obtenemos Inputs de Axes
+            getInputs();
+            // Control de Velocidad
+            speedControl();
+        }
+
+
 
         // Sí el jugador se encuentra en el suelo, aplicar fuerza de drag.
 
@@ -70,7 +83,13 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        movePlayer();
+        if (!areControlsDisabled)
+        {
+
+            movePlayer();
+
+        }
+
     }
 
     private void getInputs()
@@ -88,23 +107,23 @@ public class PlayerController : MonoBehaviour
             Invoke(nameof(reset), jumpCooldown);
         }
 
-        if (Input.GetKeyDown(spawnHealth))
-        {
-            Instantiate(
-                Resources.Load("FirstAidKit_White"),
-                moveDirection * 10,
-                transform.rotation
-            );
-        }
+        // if (Input.GetKeyDown(spawnHealth))
+        // {
+        //     Instantiate(
+        //         Resources.Load("FirstAidKit_White"),
+        //         moveDirection * 10,
+        //         transform.rotation
+        //     );
+        // }
 
-        if (Input.GetKeyDown(spawnWaste))
-        {
-            Instantiate(
-                Resources.Load("FirstAidKit_Biohazard"),
-                moveDirection * 10,
-                transform.rotation
-            );
-        }
+        // if (Input.GetKeyDown(spawnWaste))
+        // {
+        //     Instantiate(
+        //         Resources.Load("FirstAidKit_Biohazard"),
+        //         moveDirection * 10,
+        //         transform.rotation
+        //     );
+        // }
     }
 
     private void movePlayer()
@@ -145,6 +164,39 @@ public class PlayerController : MonoBehaviour
     {
         isAbleToJump = true;
     }
+
+
+    void disableControls(){
+        areControlsDisabled = true;
+
+    }
+
+    void OnDestroy() {
+        Drone.OnPlayerSpotted -= disableControls;
+        
+    }
+
+
+     void OnTriggerEnter(Collider collider) {
+         if(collider.tag == "Finish"){
+             disableControls();
+
+            if (onReachedFinish != null){
+
+                onReachedFinish ();
+
+            }
+
+
+
+         }
+
+        
+    }
+
+
+
+
 
     // private void spawnHealthMethod()
     // {
