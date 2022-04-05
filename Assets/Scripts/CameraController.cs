@@ -11,4 +11,8 @@ public class CameraController : MonoBehaviour
         //* Movemos este gameobject a la misma posición del que recibimoms como referencia (cameraPosition)
         transform.position = cameraPositon.position;
     }
+
+    
+
+   
 }

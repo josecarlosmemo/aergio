@@ -44,6 +44,9 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true; // Esto nos ayuda a que el jugador no se "caiga".
         Drone.OnPlayerSpotted += disableControls;
+        UIManager.onUIStart+=disableControls;
+        UIManager.onUIFinish += enableControls;
+
     }
 
     void Update()
@@ -145,9 +148,17 @@ public class PlayerController : MonoBehaviour
         areControlsDisabled = true;
     }
 
+    void enableControls(){
+        areControlsDisabled = false;
+    }
+
     void OnDestroy()
     {
         Drone.OnPlayerSpotted -= disableControls;
+        UIManager.onUIStart-=disableControls;
+        UIManager.onUIFinish -= enableControls;
+
+
     }
 
     void OnTriggerEnter(Collider collider)
@@ -162,4 +173,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    
+    
 }

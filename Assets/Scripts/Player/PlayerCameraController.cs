@@ -23,6 +23,8 @@ public class PlayerCameraController : MonoBehaviour
 
         Drone.OnPlayerSpotted += disableCamera;
         PlayerController.onReachedFinish += disableCamera;
+        UIManager.onUIStart += disableCamera;
+        UIManager.onUIFinish += enableCamera;
     }
 
     void Update()
@@ -31,12 +33,14 @@ public class PlayerCameraController : MonoBehaviour
         {
             float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensibility;
             float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensibility;
+            
 
             yRotation += mouseX;
             xRotation -= mouseY;
 
             //* La función Math.Clamp nos permite fijar un valor dentro de un rango.
             xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
 
             transform.rotation = Quaternion.Euler(xRotation, yRotation, 0); // Eje X
             orientation.rotation = Quaternion.Euler(0, yRotation, 0); // Eje y
@@ -48,9 +52,19 @@ public class PlayerCameraController : MonoBehaviour
         isCameraDisabled = true;
     }
 
+    void enableCamera(){
+        isCameraDisabled = false;
+    }
+
     void OnDestroy()
     {
         Drone.OnPlayerSpotted -= disableCamera;
         PlayerController.onReachedFinish -= disableCamera;
+        UIManager.onUIStart -= disableCamera;
+        UIManager.onUIFinish -= enableCamera;
+
+
     }
+
+    
 }
