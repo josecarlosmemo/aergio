@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
 {
     public static event System.Action onReachedFinish;
 
-
     [Header("Movement")]
     public float movementSpeed;
     public float jumpForce;
@@ -31,9 +30,9 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
     bool isInGround;
 
-
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
+
     // public KeyCode spawnHealth = KeyCode.H;
 
     // public KeyCode spawnWaste = KeyCode.J;
@@ -58,7 +57,6 @@ public class PlayerController : MonoBehaviour
             groundLayer
         );
 
-
         if (!areControlsDisabled)
         {
             // Obtenemos Inputs de Axes
@@ -66,8 +64,6 @@ public class PlayerController : MonoBehaviour
             // Control de Velocidad
             speedControl();
         }
-
-
 
         // Sí el jugador se encuentra en el suelo, aplicar fuerza de drag.
 
@@ -85,11 +81,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!areControlsDisabled)
         {
-
             movePlayer();
-
         }
-
     }
 
     private void getInputs()
@@ -106,29 +99,11 @@ public class PlayerController : MonoBehaviour
 
             Invoke(nameof(reset), jumpCooldown);
         }
-
-        // if (Input.GetKeyDown(spawnHealth))
-        // {
-        //     Instantiate(
-        //         Resources.Load("FirstAidKit_White"),
-        //         moveDirection * 10,
-        //         transform.rotation
-        //     );
-        // }
-
-        // if (Input.GetKeyDown(spawnWaste))
-        // {
-        //     Instantiate(
-        //         Resources.Load("FirstAidKit_Biohazard"),
-        //         moveDirection * 10,
-        //         transform.rotation
-        //     );
-        // }
     }
 
     private void movePlayer()
     {
-        // Aplicamos fueerza en la dirección a cual estamos viendo
+        // Aplicamos fuerza en la dirección a cual estamos viendo
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         if (isInGround)
@@ -165,41 +140,26 @@ public class PlayerController : MonoBehaviour
         isAbleToJump = true;
     }
 
-
-    void disableControls(){
+    void disableControls()
+    {
         areControlsDisabled = true;
-
     }
 
-    void OnDestroy() {
+    void OnDestroy()
+    {
         Drone.OnPlayerSpotted -= disableControls;
-        
     }
 
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.tag == "Finish")
+        {
+            disableControls();
 
-     void OnTriggerEnter(Collider collider) {
-         if(collider.tag == "Finish"){
-             disableControls();
-
-            if (onReachedFinish != null){
-
-                onReachedFinish ();
-
+            if (onReachedFinish != null)
+            {
+                onReachedFinish();
             }
-
-
-
-         }
-
-        
+        }
     }
-
-
-
-
-
-    // private void spawnHealthMethod()
-    // {
-    //     Instantiate(Resources.Load("FirstAidKit_White"), moveDirection * 10, transform.rotation);
-    // }
 }

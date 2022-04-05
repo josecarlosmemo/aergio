@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerCameraController : MonoBehaviour
 {
     [Header("Sensibility")]
-
     //TODO Agregar como ajuste más adelante
     public float sensibility;
 
@@ -24,45 +23,34 @@ public class PlayerCameraController : MonoBehaviour
 
         Drone.OnPlayerSpotted += disableCamera;
         PlayerController.onReachedFinish += disableCamera;
-
     }
 
     void Update()
     {
         if (!isCameraDisabled)
         {
-
             float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensibility;
             float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensibility;
 
             yRotation += mouseX;
             xRotation -= mouseY;
 
-
             //* La función Math.Clamp nos permite fijar un valor dentro de un rango.
             xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
             transform.rotation = Quaternion.Euler(xRotation, yRotation, 0); // Eje X
             orientation.rotation = Quaternion.Euler(0, yRotation, 0); // Eje y
-
-
-
         }
-
-
     }
 
-    void disableCamera(){
+    void disableCamera()
+    {
         isCameraDisabled = true;
-
-
     }
 
-     void OnDestroy() {
-
-         Drone.OnPlayerSpotted -= disableCamera;
+    void OnDestroy()
+    {
+        Drone.OnPlayerSpotted -= disableCamera;
         PlayerController.onReachedFinish -= disableCamera;
-
-        
     }
 }
