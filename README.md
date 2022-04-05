@@ -46,7 +46,7 @@
 <!-- ABOUT THE PROJECT -->
 ## What is AERGIO?
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<img src="./ArchivosExtra/Demo_game.png" alt="Logo">
 
 Aer es un bounty hunter desde años atrás que ha sobrevivido gracias a su trabajo. Viaja de planeta en planeta en su nave espacial para cumplir encargos que le dejan sus diferentes clientes, estos pueden ser desde robo de mercancía hasta la recuperación de objetos.
 Durante el transcurso de la historia empieza darse cuenta de la situación económica, social y política que rodea a la confederación de las galaxias y se entera poco a poco sobre quién asesinó a su padre años atrás.
@@ -94,9 +94,11 @@ Documentos, recursos, código, imágenes, entre otros usados en Aergio:
 * [Deserta - logo font](https://www.behance.net/gallery/134622603/Deserta-FREE-FONT/modules/761819889)
 * [Black and red digital device photo - logo's background](https://unsplash.com/photos/vS3bTz1dZ9U)
 * [Shields](https://shields.io/)
-* [Polygonal's Low-Poly Particle Pack](https://assetstore.unity.com/packages/vfx/particles/polygonal-s-low-poly-particle-pack-118355)
-* [First-Aid Set](https://assetstore.unity.com/packages/3d/props/first-aid-set-160073)
+* [Alpha Flashing UI (UI Shaders)](https://assetstore.unity.com/packages/tools/gui/alpha-flashing-ui-ui-shaders-164360)
+* [Custom Teleporter Pad Script](https://assetstore.unity.com/packages/tools/custom-teleporter-pad-script-20098)
 * [Free LowPoly SciFi](https://assetstore.unity.com/packages/3d/environments/sci-fi/free-lowpoly-scifi-110070)
+* [Starfield Skybox](https://assetstore.unity.com/packages/2d/textures-materials/sky/starfield-skybox-92717)
+* [Drone Guard](https://assetstore.unity.com/packages/3d/characters/robots/drone-guard-175607)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
