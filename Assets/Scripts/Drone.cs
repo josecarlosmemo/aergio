@@ -7,6 +7,8 @@ public class Drone : MonoBehaviour
     // Evento a correr en caso de que el jugador sea atrapado
     public static event System.Action OnPlayerSpotted;
 
+    
+
     [Header("Movement")]
     // Camino que debe seguir el dron
     public Transform path;
@@ -47,8 +49,16 @@ public class Drone : MonoBehaviour
     // Posición del jugador
     private Transform player;
 
+    private bool isMovementEnabled = true;
+
+    
+
     void Start()
     {
+        CanvasManager.onPauseStart += disableMovement;
+        CanvasManager.onPauseEnd += enableMovement;
+
+
         // Encontramos al jugador
         player = GameObject.FindGameObjectWithTag("Player").transform;
         // Establecemos parametros de la luz del dron
@@ -130,11 +140,18 @@ public class Drone : MonoBehaviour
 
         while (true)
         {
-            transform.position = Vector3.MoveTowards(
+            if(isMovementEnabled){
+
+                 transform.position = Vector3.MoveTowards(
                 transform.position,
                 nextPoint,
                 droneSpeed * Time.deltaTime
             );
+
+            }
+           
+
+
             if (transform.position == nextPoint)
             {
                 nextPointIndex = (nextPointIndex + 1) % points.Length;
@@ -153,12 +170,19 @@ public class Drone : MonoBehaviour
 
         while (Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.y, targetAngle)) > 0.05f)
         {
-            float angle = Mathf.MoveTowardsAngle(
+            if(isMovementEnabled){
+                float angle = Mathf.MoveTowardsAngle(
                 transform.eulerAngles.y,
                 targetAngle,
                 turnSpeed * Time.deltaTime
             );
+
             transform.eulerAngles = Vector3.up * angle;
+                
+            }
+
+
+            
             yield return null;
         }
     }
@@ -179,5 +203,19 @@ public class Drone : MonoBehaviour
         Gizmos.color = Color.red;
 
         Gizmos.DrawRay(transform.position, transform.forward * droneViewDistance);
+    }
+
+    void enableMovement(){
+        isMovementEnabled = true;
+    }
+    void disableMovement(){
+        isMovementEnabled = false;
+    }
+
+     void OnDestroy() {
+        CanvasManager.onPauseStart -= disableMovement;
+        CanvasManager.onPauseEnd -= enableMovement;
+
+        
     }
 }

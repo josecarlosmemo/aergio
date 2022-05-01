@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerCameraController : MonoBehaviour
 {
+    //TODO FIXME
     [Header("Sensibility")]
-    //TODO Agregar como ajuste más adelante
     public float sensibility;
 
     public Transform orientation;
@@ -18,19 +18,33 @@ public class PlayerCameraController : MonoBehaviour
     void Start()
     {
         //* Nos permite fijar y ocultar el cursor en la pantalla
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        disableCursor();
+
+        if (PlayerPrefs.HasKey("Sensibility"))
+        {
+            sensibility = PlayerPrefs.GetFloat("Sensibility");
+        } else{
+             PlayerPrefs.SetFloat("Sensibility",400f);
+        }
+
 
         Drone.OnPlayerSpotted += disableCamera;
         PlayerController.onReachedFinish += disableCamera;
-        UIManager.onUIStart += disableCamera;
-        UIManager.onUIFinish += enableCamera;
+        CanvasManager.onUIStart += disableCamera;
+        CanvasManager.onUIFinish += enableCamera;
+
+        CanvasManager.onPauseStart+= enableCursor;
+        CanvasManager.onPauseStart += disableCamera;
+        CanvasManager.onPauseEnd += disableCursor;
+        CanvasManager.onPauseEnd += enableCamera;
     }
 
     void Update()
     {
         if (!isCameraDisabled)
         {
+            sensibility = PlayerPrefs.GetFloat("Sensibility");
+
             float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensibility;
             float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensibility;
             
@@ -58,12 +72,30 @@ public class PlayerCameraController : MonoBehaviour
 
     void OnDestroy()
     {
+        enableCursor();
+
         Drone.OnPlayerSpotted -= disableCamera;
         PlayerController.onReachedFinish -= disableCamera;
-        UIManager.onUIStart -= disableCamera;
-        UIManager.onUIFinish -= enableCamera;
+        CanvasManager.onUIStart -= disableCamera;
+        CanvasManager.onUIFinish -= enableCamera;
+        CanvasManager.onPauseStart -= enableCursor;
+        CanvasManager.onPauseEnd -= disableCursor;
+        CanvasManager.onPauseStart -= disableCamera;
+        CanvasManager.onPauseEnd -= enableCamera;
 
 
+
+    }
+
+    void enableCursor(){
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+
+    }
+
+    void disableCursor(){
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     

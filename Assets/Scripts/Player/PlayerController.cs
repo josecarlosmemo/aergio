@@ -5,7 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
+    //TODO FIXME
     public static event System.Action onReachedFinish;
+    public static event System.Action<string> onZoneEntered;
 
     [Header("Movement")]
     public float movementSpeed;
@@ -44,8 +46,11 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true; // Esto nos ayuda a que el jugador no se "caiga".
         Drone.OnPlayerSpotted += disableControls;
-        UIManager.onUIStart+=disableControls;
-        UIManager.onUIFinish += enableControls;
+        CanvasManager.onUIStart += disableControls;
+        CanvasManager.onUIFinish += enableControls;
+        CanvasManager.onPauseStart += disableControls;
+        CanvasManager.onPauseEnd += enableControls;
+
 
     }
 
@@ -155,14 +160,17 @@ public class PlayerController : MonoBehaviour
     void OnDestroy()
     {
         Drone.OnPlayerSpotted -= disableControls;
-        UIManager.onUIStart-=disableControls;
-        UIManager.onUIFinish -= enableControls;
+        CanvasManager.onUIStart -= disableControls;
+        CanvasManager.onUIFinish -= enableControls;
+        CanvasManager.onPauseStart -= disableControls;
+        CanvasManager.onPauseEnd -= enableControls;
 
 
     }
 
     void OnTriggerEnter(Collider collider)
     {
+        
         if (collider.tag == "Finish")
         {
             disableControls();
@@ -171,6 +179,14 @@ public class PlayerController : MonoBehaviour
             {
                 onReachedFinish();
             }
+        } else {
+            
+
+            if (onZoneEntered!= null)
+            {
+                onZoneEntered(collider.name);
+            }
+
         }
     }
 
