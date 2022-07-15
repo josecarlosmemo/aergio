@@ -40,6 +40,13 @@ Ahora con esta información a la mano, va en busqueda de venganza en lo que cono
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+## PlayTesting
+
+[![PlayTesting](https://img.youtube.com/vi/-tTbM7zZDUU/0.jpg)](https://www.youtube.com/watch?v=-tTbM7zZDUU)
+
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Built with
 
 * [Unity](https://unity.com/es)
